@@ -8,27 +8,31 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Consoles</h1>
+<h1>Department</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Store</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Image</th>
+       <th>Code</th>
+      <th>Store</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @consoles.each do |console| %>
+    <% @departments.each do |department| %>
       <tr>
-        <td><%= console.name %></td>
-        <td><%= console.description %></td>
-        <td><%= console.image %></td>
-        <td><%= link_to 'Show', console %></td>
-        <td><%= link_to 'Edit', edit_console_path(console) %></td>
-        <td><%= link_to 'Destroy', console, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= department.store.name %></td>
+         <td><%= department.name %></td>
+        <td><%= department.description %></td>
+         <td><%= department.code%></td>
+          <td><%= link_to department.store.name, store_path(department.store) if department.store %></td>
+        <td><%= link_to 'Show', department  %></td>
+        <td><%= link_to 'Edit', edit_department_path(department) %></td>
+        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Console', new_console_path %>
+<%= link_to 'New Department', new_department_path %>
