@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201020192910) do
+ActiveRecord::Schema.define(version: 20201029200718) do
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "consoles", force: :cascade do |t|
     t.string   "model"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 20201020192910) do
   create_table "reviews", force: :cascade do |t|
     t.text     "note"
     t.integer  "store_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "employee_id"
+    t.index ["employee_id"], name: "index_reviews_on_employee_id"
     t.index ["store_id"], name: "index_reviews_on_store_id"
   end
 
